@@ -9,7 +9,7 @@
   <div class="container py-5">
     <h1 class="mb-4">Contact Me</h1>
 
-    <p>If you’d like to connect regarding job opportunities or collaboration, feel free to reach out:</p>
+    <p>If you'd like to connect regarding job opportunities or collaborations, feel free to reach out:</p>
 
     <ul class="list-group mb-4">
       <li class="list-group-item">
@@ -20,24 +20,24 @@
       </li>
     </ul>
 
-    <!-- Optional Contact Form (non-functional placeholder) -->
+    <!-- Live Formspree Contact Form -->
     <div class="card">
       <div class="card-body">
         <h5 class="card-title">Send a Message</h5>
-        <form>
+        <form action="https://formspree.io/f/xvgrnong" method="POST">
           <div class="mb-3">
             <label for="name" class="form-label">Your Name</label>
-            <input type="text" class="form-control" id="name" placeholder="Enter your name" disabled>
+            <input type="text" class="form-control" name="name" required>
           </div>
           <div class="mb-3">
             <label for="email" class="form-label">Your Email</label>
-            <input type="email" class="form-control" id="email" placeholder="Enter your email" disabled>
+            <input type="email" class="form-control" name="email" required>
           </div>
           <div class="mb-3">
             <label for="message" class="form-label">Message</label>
-            <textarea class="form-control" id="message" rows="4" placeholder="Write your message here..." disabled></textarea>
+            <textarea class="form-control" name="message" rows="4" required></textarea>
           </div>
-          <button type="submit" class="btn btn-primary" disabled>Send (Disabled for Demo)</button>
+          <button type="submit" class="btn btn-primary">Send Message</button>
         </form>
       </div>
     </div>
