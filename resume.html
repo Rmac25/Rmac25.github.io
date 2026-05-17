@@ -1,92 +1,205 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>Resume – Roy Mcdonald</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+
+  <style>
+    body {
+      background-color: #f8f9fa;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .navbar {
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .resume-header {
+      background: linear-gradient(135deg, #2b5876, #4e4376);
+      color: white;
+      padding: 3rem 0;
+      text-align: center;
+    }
+
+    .resume-card {
+      background: white;
+      border-radius: 1rem;
+      padding: 2rem;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    h3 {
+      color: #2b5876;
+      margin-top: 2rem;
+      border-bottom: 2px solid #dee2e6;
+      padding-bottom: 0.5rem;
+    }
+
+    h5 {
+      margin-top: 1.5rem;
+      font-weight: 600;
+      color: #343a40;
+    }
+
+    footer {
+      background-color: #343a40;
+    }
+  </style>
 </head>
+
 <body>
-  <div class="container py-5">
-    <h1 class="mb-4">Roy Mcdonald – Resume</h1>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="index.html">Roy Mcdonald</a>
 
-    <h3>Contact</h3>
-    <p>Rock Hill, SC 29730<br>
-    <br>
-    <a href="mailto:roymcdnld89@gmail.com">roymcdnld89@gmail.com</a></p>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNav"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-    <h3>Professional Summary</h3>
-    <p>Versatile IT Professional with 7+ years of experience in system administration and security, transitioning into Identity and Access Management (IAM). Proven expertise in managing Active Directory, Azure AD, Microsoft Intune, MFA, and automation using PowerShell. Skilled in implementing secure access policies, identity lifecycle management, compliance, ITIL practices, and service level agreements (SLAs) across hybrid enterprise environments. Committed to strengthening organizational security through robust IAM practices.</p>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="projects.html">Projects</a></li>
+          <li class="nav-item"><a class="nav-link" href="skills.html">Skills</a></li>
+          <li class="nav-item"><a class="nav-link active" href="resume.html">Resume</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
-    <h3>Core Skills & Technologies</h3>
-    <ul>
-      <li><strong>Identity & Access Management:</strong> Entra ID (Azure AD), Active Directory, Intune, Conditional Access, MFA, RBAC, GPO, PowerShell IAM Scripting, Office 365 Identity Management</li>
-      <li><strong>Systems & Cloud:</strong> Windows Server 2016/2012, Azure, AWS, Hyper-V, VMware</li>
-      <li><strong>Networking:</strong> DNS, DHCP, Firewalls, Routers, Switches</li>
-      <li><strong>Cybersecurity:</strong> Endpoint Protection, Patch Management, Threat Detection, Compliance</li>
-      <li><strong>Automation & Scripting:</strong> PowerShell, Oomnitza Workflow Automation, Bash</li>
-      <li><strong>Virtualization & Storage:</strong> VDI, Hyper-V, VMware ESXi, SAN (Pure), P2V Migrations</li>
-      <li><strong>Tools:</strong> Microsoft 365 Admin, Freshservice, Jira</li>
-      <li><strong>Backup & Recovery:</strong> Veeam, Storage Management, Disaster Recovery Planning</li>
-      <li><strong>ITIL & Service Management:</strong> Incident Management, Change Management, SLA Monitoring, ITSM Best Practices</li>
-    </ul>
+  <header class="resume-header">
+    <div class="container">
+      <h1 class="display-5 fw-bold">Roy Mcdonald</h1>
+      <p class="lead mb-1">Identity & Access Management | Cybersecurity | Microsoft 365</p>
+      <p class="mb-0">
+        Rock Hill, SC |
+        <a href="mailto:roymcdnld89@gmail.com" class="text-white">
+          roymcdnld89@gmail.com
+        </a>
+      </p>
+    </div>
+  </header>
 
-    <h3>Certifications</h3>
-    <ul>
-      <li>Microsoft Certified: SC-900 Security, Compliance, and Identity Fundamentals</li>
-      <li>Microsoft Certified: Azure Fundamentals (AZ-900)</li>
-      <li>CompTIA Security+, Network+, A+</li>
-      <li>Currently Pursuing: Microsoft Certified: Identity and Access Administrator Associate (SC-300)</li>
-    </ul>
+  <main class="container my-5">
+    <div class="resume-card">
+      <div class="text-end mb-4">
+        <a href="Roy-Mcdonald-Resume.pdf" class="btn btn-primary" download>
+          Download Resume
+        </a>
+      </div>
 
-    <h3>Work History</h3>
-    <h5>IT Support Analyst – Krispy Kreme (Feb 2025 – Jun 2025)</h5>
-    <ul>
-      <li>Automated user provisioning and deprovisioning via Oomnitza and PowerShell.</li>
-      <li>Maintained and secured Azure AD identities, roles, and conditional access policies.</li>
-      <li>Conducted identity audits and Active Directory cleanup to ensure compliance with UKG Ultipro records.</li>
-      <li>Configured and monitored MFA and Intune MDM policies to enforce secure access.</li>
-      <li>Created access control SOPs aligned with least privilege and compliance standards.</li>
-      <li>Responded to escalated service requests using Freshservice.</li>
-      <li>Applied ITIL methodologies to improve incident resolution and SLA compliance.</li>
-    </ul>
+      <h3>Professional Summary</h3>
+      <p>
+        Versatile IT professional with 7+ years of experience in system administration,
+        cybersecurity, Microsoft 365 administration, and identity access support.
+        Skilled in Active Directory, Microsoft Entra ID, Intune, MFA, Conditional Access,
+        PowerShell automation, endpoint support, and IT service management. Currently
+        focused on growing into Identity and Access Management engineering and cloud
+        security roles.
+      </p>
 
-    <h5>IT Specialist – West Marine (Sep 2023 – Feb 2025)</h5>
-    <ul>
-      <li>Managed VMware hosts and performed P2V migrations.</li>
-      <li>Integrated Azure cloud services and deployed Microsoft 365 enterprise features.</li>
-      <li>Managed VDI and MDM environments; supported secure access and uptime.</li>
-      <li>Applied IT policies, led patching, and supported identity-related incidents and recovery.</li>
-      <li>Maintained SLA metrics and contributed to continuous improvement initiatives based on ITIL.</li>
-    </ul>
+      <h3>Core Skills & Technologies</h3>
+      <ul>
+        <li><strong>Identity & Access Management:</strong> Microsoft Entra ID, Active Directory, MFA, Conditional Access, RBAC, GPO, identity lifecycle support</li>
+        <li><strong>Microsoft 365:</strong> Exchange Online, Teams, SharePoint, OneDrive, Microsoft 365 Admin Center</li>
+        <li><strong>Endpoint & Device Management:</strong> Microsoft Intune, Endpoint Central, patching, endpoint protection, device compliance</li>
+        <li><strong>Automation:</strong> PowerShell, Oomnitza workflows, user provisioning, reporting, account cleanup</li>
+        <li><strong>Systems & Cloud:</strong> Windows Server, Azure, AWS, Hyper-V, VMware, VDI</li>
+        <li><strong>Networking:</strong> DNS, DHCP, firewalls, routers, switches, TCP/IP troubleshooting</li>
+        <li><strong>Security:</strong> Access control, compliance support, threat detection, least privilege, Zero Trust concepts</li>
+        <li><strong>ITSM Tools:</strong> Freshservice, ServiceNow, Jira, incident management, change management, SLA tracking</li>
+      </ul>
 
-    <h5>Desktop Support Analyst – USPS (May 2018 – Oct 2023)</h5>
-    <ul>
-      <li>Supported 850+ users; deployed Office 365 and Azure AD identity solutions.</li>
-      <li>Assisted with GPOs, DNS, and AD configuration for access control.</li>
-      <li>Trained staff on secure access and provided identity-related technical support.</li>
-      <li>Documented incidents and ensured resolution times met SLA expectations.</li>
-    </ul>
+      <h3>Certifications</h3>
+      <ul>
+        <li>Microsoft Certified: Security, Compliance, and Identity Fundamentals</li>
+        <li>Microsoft Certified: Azure Fundamentals</li>
+        <li>CompTIA Security+</li>
+        <li>CompTIA Network+</li>
+        <li>CompTIA A+</li>
+        <li>Currently pursuing: Microsoft SC-300 Identity and Access Administrator Associate</li>
+      </ul>
 
-    <h5>Inventory Support Specialist – Toyota of Rock Hill (May 2016 – May 2018)</h5>
-    <ul>
-      <li>Automated tasks using PowerShell; contributed to SQL server upgrade projects.</li>
-      <li>Supported inventory systems and trained staff on process changes.</li>
-      <li>Delivered technical support and resolved IT service issues efficiently.</li>
-    </ul>
+      <h3>Professional Experience</h3>
 
-    <h5>IT Specialist (E-4 Specialist) – U.S. Army (Feb 2012 – Jul 2016)</h5>
-    <ul>
-      <li>Maintained military communication systems and IT hardware in high-demand environments.</li>
-      <li>Ensured compliance and documented all support procedures to military standards.</li>
-    </ul>
+      <h5>Infrastructure Engineer – Bank of America</h5>
+      <p><em>Sep 2025 – Present</em></p>
+      <ul>
+        <li>Support enterprise infrastructure, messaging, identity, and access-related operations in a regulated environment.</li>
+        <li>Use Microsoft 365, Exchange Online, Active Directory, ServiceNow, and PowerShell to troubleshoot and support enterprise users.</li>
+        <li>Assist with operational support, incident resolution, access-related investigations, and technical documentation.</li>
+      </ul>
 
-    <h3>Education</h3>
-    <ul>
-      <li><strong>Master of Science in Cybersecurity</strong> – ECPI University (Expected Jun 2026)<br>
-        Focus: IAM, Cloud Security, Incident Response, GRC, Security Architecture, Zero Trust</li>
-      <li><strong>Bachelor of Science in Cyber and Information Security Technology</strong> – ECPI University (Mar 2024)<br>
-        Focus: Network Security, Ethical Hacking, Penetration Testing, Incident Response</li>
-    </ul>
-  </div>
+      <h5>IT Support Analyst – Krispy Kreme</h5>
+      <p><em>Feb 2025 – Jun 2025</em></p>
+      <ul>
+        <li>Automated user provisioning and deprovisioning tasks using Oomnitza and PowerShell.</li>
+        <li>Supported Azure AD identities, roles, MFA, Conditional Access, and Intune device policies.</li>
+        <li>Performed identity audits and Active Directory cleanup aligned with HR records.</li>
+        <li>Created access control documentation aligned with least privilege and compliance standards.</li>
+      </ul>
+
+      <h5>IT Specialist – West Marine</h5>
+      <p><em>Sep 2023 – Feb 2025</em></p>
+      <ul>
+        <li>Managed VMware hosts, supported P2V migrations, and assisted with Microsoft 365 enterprise services.</li>
+        <li>Supported VDI, MDM, endpoint security, patching, and identity-related incidents.</li>
+        <li>Maintained SLA metrics and supported continuous improvement through ITIL-based processes.</li>
+      </ul>
+
+      <h5>Desktop Support Analyst – USPS</h5>
+      <p><em>May 2018 – Oct 2023</em></p>
+      <ul>
+        <li>Supported 850+ users with desktop, Microsoft 365, Active Directory, and access-related issues.</li>
+        <li>Assisted with GPOs, DNS, endpoint configuration, and secure access troubleshooting.</li>
+        <li>Documented incidents, trained users, and helped maintain SLA compliance.</li>
+      </ul>
+
+      <h5>Inventory Support Specialist – Toyota of Rock Hill</h5>
+      <p><em>May 2016 – May 2018</em></p>
+      <ul>
+        <li>Supported inventory systems, technical troubleshooting, and process improvement efforts.</li>
+        <li>Assisted with PowerShell automation and SQL server upgrade support.</li>
+      </ul>
+
+      <h5>IT Specialist – U.S. Army</h5>
+      <p><em>Feb 2012 – Jul 2016</em></p>
+      <ul>
+        <li>Maintained IT hardware, communication systems, and support procedures in high-demand environments.</li>
+        <li>Documented technical processes and supported compliance with military standards.</li>
+      </ul>
+
+      <h3>Education</h3>
+      <ul>
+        <li>
+          <strong>Master of Science in Cybersecurity</strong> – ECPI University<br />
+          Expected Jun 2026
+        </li>
+        <li>
+          <strong>Bachelor of Science in Cyber and Information Security Technology</strong> – ECPI University<br />
+          Completed Mar 2024
+        </li>
+      </ul>
+    </div>
+  </main>
+
+  <footer class="text-white text-center py-3">
+    <p class="mb-0">&copy; 2026 Roy Mcdonald. All rights reserved.</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
