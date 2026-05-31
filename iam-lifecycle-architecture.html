@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>IAM Lifecycle Architecture – Roy Mcdonald</title>
+
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+
+  <style>
+    body {
+      background-color: #f8f9fa;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .navbar {
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .project-header {
+      background: linear-gradient(135deg, #2b5876, #4e4376);
+      color: white;
+      padding: 3rem 0;
+      text-align: center;
+    }
+
+    .content-card {
+      background: white;
+      border-radius: 1rem;
+      padding: 2rem;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      margin-bottom: 2rem;
+    }
+
+    .badge {
+      margin-right: 0.25rem;
+      margin-bottom: 0.35rem;
+    }
+
+    footer {
+      background-color: #343a40;
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="index.html">Roy Mcdonald</a>
+
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNav"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link active" href="projects.html">Projects</a></li>
+          <li class="nav-item"><a class="nav-link" href="skills.html">Skills</a></li>
+          <li class="nav-item"><a class="nav-link" href="resume.html">Resume</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <header class="project-header">
+    <div class="container">
+      <h1 class="display-5 fw-bold">Automated IAM User Lifecycle Architecture</h1>
+      <p class="lead mb-0">
+        Joiner, Mover, and Leaver identity lifecycle design.
+      </p>
+    </div>
+  </header>
+
+  <main class="container my-5">
+
+    <section class="content-card">
+      <h2>Project Overview</h2>
+      <p>
+        This project demonstrates a secure IAM architecture for managing the full
+        employee lifecycle. The design supports onboarding new users, updating access
+        when users change roles, and removing access when users leave the organization.
+      </p>
+
+      <p>
+        The architecture connects HR, IT service management, automation, identity,
+        Microsoft 365, endpoint management, and reporting tools into one controlled
+        workflow.
+      </p>
+
+      <div>
+        <span class="badge bg-primary">IAM</span>
+        <span class="badge bg-primary">Entra ID</span>
+        <span class="badge bg-primary">Active Directory</span>
+        <span class="badge bg-primary">PowerShell</span>
+        <span class="badge bg-primary">Microsoft 365</span>
+        <span class="badge bg-primary">Intune</span>
+        <span class="badge bg-primary">Endpoint Central</span>
+      </div>
+    </section>
+
+    <section class="content-card">
+      <h2>Architecture Flow</h2>
+      <p>
+        HR System → ServiceNow/Freshservice → PowerShell Automation Server →
+        Active Directory → Microsoft Entra ID → Microsoft 365 →
+        Intune/Endpoint Central → Logging and Compliance Reports
+      </p>
+    </section>
+
+    <section class="content-card">
+      <h2>Joiner Process</h2>
+      <p>
+        The Joiner process handles new employees. Once HR enters the employee record,
+        a ticket is created and automation provisions the required accounts, groups,
+        licenses, mailbox, Teams access, SharePoint access, and device profiles.
+      </p>
+
+      <ul>
+        <li>Create user account in Active Directory</li>
+        <li>Sync identity to Microsoft Entra ID</li>
+        <li>Assign role-based security groups</li>
+        <li>Assign Microsoft 365 license</li>
+        <li>Create mailbox and collaboration access</li>
+        <li>Assign device and software policies</li>
+      </ul>
+    </section>
+
+    <section class="content-card">
+      <h2>Mover Process</h2>
+      <p>
+        The Mover process handles employees who change departments, managers, or job roles.
+        Access is reviewed and updated based on the user’s new responsibilities.
+      </p>
+
+      <ul>
+        <li>Review current access</li>
+        <li>Remove unnecessary old access</li>
+        <li>Add new role-based access</li>
+        <li>Update manager and department attributes</li>
+        <li>Update Microsoft 365, Teams, and SharePoint permissions</li>
+        <li>Log changes for audit review</li>
+      </ul>
+    </section>
+
+    <section class="content-card">
+      <h2>Leaver Process</h2>
+      <p>
+        The Leaver process handles offboarding. The goal is to quickly block access,
+        preserve business data, recover devices, and maintain a clean audit trail.
+      </p>
+
+      <ul>
+        <li>Disable Active Directory account</li>
+        <li>Block Entra ID sign-in</li>
+        <li>Revoke active sessions</li>
+        <li>Remove group memberships</li>
+        <li>Convert mailbox to shared mailbox if needed</li>
+        <li>Transfer OneDrive access to manager</li>
+        <li>Retire, wipe, or recover assigned device</li>
+      </ul>
+    </section>
+
+    <section class="content-card">
+      <h2>Security Controls</h2>
+      <ul>
+        <li>Role-Based Access Control</li>
+        <li>Least privilege access</li>
+        <li>Multi-Factor Authentication</li>
+        <li>Conditional Access policies</li>
+        <li>Approval workflows</li>
+        <li>Access reviews</li>
+        <li>Audit logging</li>
+        <li>Device compliance enforcement</li>
+      </ul>
+    </section>
+
+    <section class="content-card">
+      <h2>Tools Used</h2>
+      <ul>
+        <li>Microsoft Entra ID</li>
+        <li>Active Directory</li>
+        <li>PowerShell</li>
+        <li>Microsoft Graph</li>
+        <li>Microsoft 365 Admin Center</li>
+        <li>Exchange Online</li>
+        <li>SharePoint Online</li>
+        <li>Microsoft Intune</li>
+        <li>ManageEngine Endpoint Central</li>
+        <li>ServiceNow or Freshservice</li>
+      </ul>
+    </section>
+
+    <a href="projects.html" class="btn btn-primary">Back to Projects</a>
+
+  </main>
+
+  <footer class="text-white text-center py-3">
+    <p class="mb-0">&copy; 2026 Roy Mcdonald. All rights reserved.</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
