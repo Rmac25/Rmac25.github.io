@@ -11,7 +11,7 @@
   <header class="site-header">
     <a class="brand" href="index.html#top" aria-label="Roy Mcdonald home">Roy Mcdonald</a>
     <nav class="nav" aria-label="Project navigation">
-      <a href="index.html#projects">Projects</a>
+      <a href="projects.html">Projects</a>
       <a href="index.html#skills">Skills</a>
       <a href="index.html#resume">Resume</a>
       <a href="index.html#contact">Contact</a>
@@ -26,7 +26,7 @@
         <p class="lead">A Microsoft Entra ID lab focused on designing, validating, and safely rolling out MFA-based Conditional Access policies for cloud applications.</p>
         <div class="hero-actions">
           <a class="button primary" href="assets/conditional-access-policy-lab.md" download>Download Runbook</a>
-          <a class="button secondary" href="index.html#projects">Back to Portfolio</a>
+          <a class="button secondary" href="projects.html">Back to Projects</a>
         </div>
       </div>
       <aside class="project-summary-panel" aria-label="Project summary">
@@ -90,6 +90,37 @@
           <h3>Validate</h3>
           <p>Use report-only mode and sign-in logs to confirm expected outcomes before enabling enforcement.</p>
         </article>
+      </div>
+    </section>
+
+    <section class="section case-section">
+      <div class="section-heading">
+        <div>
+          <p class="section-kicker">Policy flow</p>
+          <h2>Conditional Access decision path</h2>
+        </div>
+      </div>
+      <div class="diagram-flow" aria-label="Conditional Access policy flow diagram">
+        <div>
+          <span>User</span>
+          <strong>Pilot group</strong>
+        </div>
+        <div>
+          <span>App</span>
+          <strong>Microsoft 365</strong>
+        </div>
+        <div>
+          <span>Policy</span>
+          <strong>Report-only validation</strong>
+        </div>
+        <div>
+          <span>Control</span>
+          <strong>Require MFA</strong>
+        </div>
+        <div>
+          <span>Evidence</span>
+          <strong>Sign-in logs</strong>
+        </div>
       </div>
     </section>
 

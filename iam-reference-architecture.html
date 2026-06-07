@@ -11,7 +11,7 @@
   <header class="site-header">
     <a class="brand" href="index.html#top" aria-label="Roy Mcdonald home">Roy Mcdonald</a>
     <nav class="nav" aria-label="Project navigation">
-      <a href="index.html#projects">Projects</a>
+      <a href="projects.html">Projects</a>
       <a href="index.html#skills">Skills</a>
       <a href="index.html#resume">Resume</a>
       <a href="index.html#contact">Contact</a>
@@ -26,7 +26,7 @@
         <p class="lead">A target-state identity architecture that connects lifecycle automation, access governance, authentication controls, privileged access, monitoring, and audit evidence.</p>
         <div class="hero-actions">
           <a class="button primary" href="assets/iam-reference-architecture.md" download>Download Architecture Brief</a>
-          <a class="button secondary" href="index.html#projects">Back to Portfolio</a>
+          <a class="button secondary" href="projects.html">Back to Projects</a>
         </div>
       </div>
       <aside class="project-summary-panel" aria-label="Project summary">
@@ -95,6 +95,37 @@
           <h3>Governance Layer</h3>
           <p>Access reviews, tickets, approvals, audit logs, and exception handling prove control.</p>
         </article>
+      </div>
+    </section>
+
+    <section class="section case-section">
+      <div class="section-heading">
+        <div>
+          <p class="section-kicker">Architecture diagram</p>
+          <h2>Identity flow at a glance</h2>
+        </div>
+      </div>
+      <div class="diagram-flow" aria-label="IAM reference architecture diagram">
+        <div>
+          <span>Source</span>
+          <strong>HR / Ticket</strong>
+        </div>
+        <div>
+          <span>Directory</span>
+          <strong>Entra ID + AD</strong>
+        </div>
+        <div>
+          <span>Access</span>
+          <strong>Groups / Roles / Apps</strong>
+        </div>
+        <div>
+          <span>Controls</span>
+          <strong>MFA / CA / PAM</strong>
+        </div>
+        <div>
+          <span>Evidence</span>
+          <strong>Logs / Reviews / SIEM</strong>
+        </div>
       </div>
     </section>
 

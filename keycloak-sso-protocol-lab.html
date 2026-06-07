@@ -11,7 +11,7 @@
   <header class="site-header">
     <a class="brand" href="index.html#top" aria-label="Roy Mcdonald home">Roy Mcdonald</a>
     <nav class="nav" aria-label="Project navigation">
-      <a href="index.html#projects">Projects</a>
+      <a href="projects.html">Projects</a>
       <a href="index.html#skills">Skills</a>
       <a href="index.html#resume">Resume</a>
       <a href="index.html#contact">Contact</a>
@@ -26,7 +26,7 @@
         <p class="lead">A hands-on identity provider lab that demonstrates how SAML, OAuth 2.0, and OpenID Connect support single sign-on for enterprise applications.</p>
         <div class="hero-actions">
           <a class="button primary" href="assets/keycloak-sso-protocol-lab.md" download>Download Runbook</a>
-          <a class="button secondary" href="index.html#projects">Back to Portfolio</a>
+          <a class="button secondary" href="projects.html">Back to Projects</a>
         </div>
       </div>
       <aside class="project-summary-panel" aria-label="Project summary">
@@ -90,6 +90,37 @@
           <h3>Return</h3>
           <p>The browser returns to the approved redirect URI, and the app consumes the identity data for access decisions.</p>
         </article>
+      </div>
+    </section>
+
+    <section class="section case-section">
+      <div class="section-heading">
+        <div>
+          <p class="section-kicker">SSO diagram</p>
+          <h2>Authentication handoff</h2>
+        </div>
+      </div>
+      <div class="diagram-flow" aria-label="SSO protocol flow diagram">
+        <div>
+          <span>1</span>
+          <strong>User opens app</strong>
+        </div>
+        <div>
+          <span>2</span>
+          <strong>App redirects to Keycloak</strong>
+        </div>
+        <div>
+          <span>3</span>
+          <strong>User authenticates</strong>
+        </div>
+        <div>
+          <span>4</span>
+          <strong>Token / assertion issued</strong>
+        </div>
+        <div>
+          <span>5</span>
+          <strong>App grants access</strong>
+        </div>
       </div>
     </section>
 
