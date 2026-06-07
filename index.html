@@ -12,7 +12,7 @@
   <header class="site-header">
     <a class="brand" href="#top" aria-label="Roy Mcdonald home">Roy Mcdonald</a>
     <nav class="nav" aria-label="Primary navigation">
-      <a href="#projects">Projects</a>
+      <a href="projects.html">Projects</a>
       <a href="#skills">Skills</a>
       <a href="#resume">Resume</a>
       <a href="#certifications">Certifications</a>
@@ -27,7 +27,7 @@
         <h1 id="hero-title">Roy Mcdonald</h1>
         <p class="lead">IAM-focused IT professional building practical automation, access governance, and Microsoft cloud security projects.</p>
         <div class="hero-actions" aria-label="Portfolio actions">
-          <a class="button primary" href="#projects">View Projects</a>
+          <a class="button primary" href="projects.html">View Projects</a>
           <a class="button secondary" href="assets/Roy_Mcdonald_IAM_Engineer_Resume.pdf" download>Download Resume PDF</a>
           <a class="button secondary" href="https://github.com/rmac25" target="_blank" rel="noreferrer">GitHub</a>
         </div>
@@ -52,11 +52,32 @@
 
     <section class="section" id="projects" aria-labelledby="projects-title">
       <div class="section-heading">
-        <p class="section-kicker">IAM project work</p>
-        <h2 id="projects-title">Identity-focused projects</h2>
+        <p class="section-kicker">Featured work</p>
+        <h2 id="projects-title">Selected IAM projects</h2>
+        <a class="button secondary" href="projects.html">View All Projects</a>
       </div>
 
       <div class="project-grid">
+        <article class="project-card featured-project">
+          <div class="project-topline">
+            <span class="project-type">Architecture</span>
+            <span class="project-state">Target state</span>
+          </div>
+          <h3>IAM Reference Architecture</h3>
+          <p>Architecture project for designing a governed hybrid identity model across lifecycle automation, access controls, privileged access, monitoring, and audit evidence.</p>
+          <ul class="project-points">
+            <li>Maps identity sources, directories, applications, and access paths</li>
+            <li>Defines governance layers for RBAC, reviews, approvals, and evidence</li>
+            <li>Creates a roadmap from current state to target-state IAM maturity</li>
+          </ul>
+          <div class="project-tags" aria-label="Tools used">
+            <span>Architecture</span>
+            <span>Entra ID</span>
+            <span>Governance</span>
+          </div>
+          <a class="text-link" href="iam-reference-architecture.html">View architecture case study</a>
+        </article>
+
         <article class="project-card">
           <div class="project-topline">
             <span class="project-type">Lifecycle automation</span>
@@ -69,62 +90,12 @@
             <li>Uses `-WhatIf` / `-Confirm` safeguards for controlled changes</li>
             <li>Exports JSON access review evidence for audit-ready reporting</li>
           </ul>
-          <dl class="project-metrics">
-            <div>
-              <dt>Workflow</dt>
-              <dd>Joiner / Mover / Leaver</dd>
-            </div>
-            <div>
-              <dt>Evidence</dt>
-              <dd>Audit log + review JSON</dd>
-            </div>
-          </dl>
           <div class="project-tags" aria-label="Tools used">
             <span>Microsoft Graph</span>
             <span>Active Directory</span>
             <span>PowerShell</span>
           </div>
           <a class="text-link" href="iam-lifecycle-automation.html">View project case study</a>
-        </article>
-
-        <article class="project-card">
-          <div class="project-topline">
-            <span class="project-type">Access governance</span>
-            <span class="project-state">Entra ID</span>
-          </div>
-          <h3>Conditional Access Policy Lab</h3>
-          <p>Microsoft Entra ID lab for mapping access requirements to MFA, Conditional Access, group targeting, app conditions, and validation steps.</p>
-          <ul class="project-points">
-            <li>Designed policies around least privilege and user risk</li>
-            <li>Validated expected access outcomes before broad rollout</li>
-            <li>Documented policy intent, scope, and troubleshooting notes</li>
-          </ul>
-          <div class="project-tags" aria-label="Tools used">
-            <span>Entra ID</span>
-            <span>MFA</span>
-            <span>Conditional Access</span>
-          </div>
-          <a class="text-link" href="conditional-access-policy-lab.html">View project case study</a>
-        </article>
-
-        <article class="project-card">
-          <div class="project-topline">
-            <span class="project-type">Federation</span>
-            <span class="project-state">SSO</span>
-          </div>
-          <h3>Keycloak SSO Protocol Lab</h3>
-          <p>Hands-on identity provider lab demonstrating SAML, OAuth 2.0, and OpenID Connect flows in a practical single sign-on environment.</p>
-          <ul class="project-points">
-            <li>Configured client applications, redirect flows, and authentication behavior</li>
-            <li>Compared identity provider, service provider, and relying party roles</li>
-            <li>Connected protocol concepts to enterprise IAM troubleshooting</li>
-          </ul>
-          <div class="project-tags" aria-label="Tools used">
-            <span>Keycloak</span>
-            <span>SAML</span>
-            <span>OIDC</span>
-          </div>
-          <a class="text-link" href="keycloak-sso-protocol-lab.html">View project case study</a>
         </article>
 
         <article class="project-card">
@@ -145,26 +116,6 @@
             <span>RSAT</span>
           </div>
           <a class="text-link" href="active-directory-access-review-lab.html">View project case study</a>
-        </article>
-
-        <article class="project-card featured-project">
-          <div class="project-topline">
-            <span class="project-type">Architecture</span>
-            <span class="project-state">Target state</span>
-          </div>
-          <h3>IAM Reference Architecture</h3>
-          <p>Architecture project for designing a governed hybrid identity model across lifecycle automation, access controls, privileged access, monitoring, and audit evidence.</p>
-          <ul class="project-points">
-            <li>Maps identity sources, directories, applications, and access paths</li>
-            <li>Defines governance layers for RBAC, reviews, approvals, and evidence</li>
-            <li>Creates a roadmap from current state to target-state IAM maturity</li>
-          </ul>
-          <div class="project-tags" aria-label="Tools used">
-            <span>Architecture</span>
-            <span>Entra ID</span>
-            <span>Governance</span>
-          </div>
-          <a class="text-link" href="iam-reference-architecture.html">View architecture case study</a>
         </article>
       </div>
     </section>
@@ -236,8 +187,8 @@
           <h3>Project Proof</h3>
           <ul class="resume-list">
             <li>IAM onboarding and offboarding automation</li>
-            <li>Conditional Access and MFA policy labs</li>
-            <li>SAML, OAuth 2.0, and OpenID Connect lab work</li>
+            <li>IAM reference architecture and governance design</li>
+            <li>Conditional Access, SSO, and AD cleanup labs</li>
             <li>Audit logging and safe testing workflows</li>
           </ul>
         </article>
@@ -264,7 +215,7 @@
       </div>
       <div class="contact-actions">
         <a class="button primary" href="https://github.com/rmac25" target="_blank" rel="noreferrer">GitHub Profile</a>
-        <a class="button secondary" href="#projects">Project Work</a>
+        <a class="button secondary" href="projects.html">Project Work</a>
       </div>
     </section>
   </main>

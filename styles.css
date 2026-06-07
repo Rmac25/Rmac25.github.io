@@ -440,6 +440,10 @@ h3 {
   padding: clamp(46px, 8vw, 96px) clamp(18px, 6vw, 84px);
 }
 
+.project-library-hero {
+  min-height: calc(70vh - 72px);
+}
+
 .project-summary-panel {
   padding: 26px;
   color: #fff;
