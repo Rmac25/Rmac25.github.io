@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="IAM Lifecycle Automation project case study by Roy Mcdonald, showing PowerShell automation for Microsoft Graph, Active Directory, onboarding, review, offboarding, and audit evidence.">
+  <title>IAM Lifecycle Automation | Roy Mcdonald</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html#top" aria-label="Roy Mcdonald home">Roy Mcdonald</a>
+    <nav class="nav" aria-label="Project navigation">
+      <a href="index.html#projects">Projects</a>
+      <a href="index.html#skills">Skills</a>
+      <a href="index.html#resume">Resume</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="project-hero">
+      <div>
+        <p class="eyebrow">Project case study</p>
+        <h1>IAM Lifecycle Automation</h1>
+        <p class="lead">A PowerShell-based identity workflow for onboarding, access review, offboarding, and audit evidence across Microsoft Entra ID and Active Directory environments.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="assets/IAM-Protocol.ps1" download>Download Script</a>
+          <a class="button secondary" href="index.html#projects">Back to Portfolio</a>
+        </div>
+      </div>
+      <aside class="project-summary-panel" aria-label="Project summary">
+        <dl>
+          <div>
+            <dt>Role</dt>
+            <dd>IAM automation builder</dd>
+          </div>
+          <div>
+            <dt>Stack</dt>
+            <dd>PowerShell, Microsoft Graph, Active Directory</dd>
+          </div>
+          <div>
+            <dt>Focus</dt>
+            <dd>Joiner / mover / leaver lifecycle</dd>
+          </div>
+          <div>
+            <dt>Security</dt>
+            <dd>Least privilege, audit logging, safe testing</dd>
+          </div>
+        </dl>
+      </aside>
+    </section>
+
+    <section class="section case-section">
+      <div class="case-grid">
+        <article class="case-panel">
+          <p class="section-kicker">Problem</p>
+          <h2>Manual identity work creates risk.</h2>
+          <p>Onboarding, access reviews, and offboarding often depend on repeated administrative steps. If those steps are inconsistent, access can be over-provisioned, evidence can be incomplete, and offboarding can miss active sessions or privileged assignments.</p>
+        </article>
+        <article class="case-panel">
+          <p class="section-kicker">Solution</p>
+          <h2>A repeatable IAM workflow.</h2>
+          <p>This project standardizes IAM actions into one controlled PowerShell workflow with provider selection, parameter validation, audit logging, Microsoft Graph support, Active Directory support, and safe execution through `-WhatIf` / `-Confirm`.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section case-section light-section">
+      <div class="section-heading">
+        <div>
+          <p class="section-kicker">Workflow</p>
+          <h2>What the script demonstrates</h2>
+        </div>
+      </div>
+
+      <div class="workflow-grid">
+        <article>
+          <span>01</span>
+          <h3>Onboard</h3>
+          <p>Create or update an identity, assign baseline attributes, set manager details, and add requested group memberships.</p>
+        </article>
+        <article>
+          <span>02</span>
+          <h3>Review</h3>
+          <p>Pull identity details and group memberships, print reviewer-friendly output, and optionally export JSON evidence.</p>
+        </article>
+        <article>
+          <span>03</span>
+          <h3>Offboard</h3>
+          <p>Disable the account, revoke Graph sign-in sessions, remove requested groups, app role assignments, directory role memberships, and supported authentication methods.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section case-section">
+      <div class="section-heading">
+        <div>
+          <p class="section-kicker">Demo commands</p>
+          <h2>How the project is used</h2>
+        </div>
+      </div>
+
+      <div class="code-grid">
+        <article class="code-panel">
+          <h3>Safe onboarding test</h3>
+          <pre><code>.\IAM-Protocol.ps1 `
+  -Action Onboard `
+  -Provider MicrosoftGraph `
+  -UserPrincipalName "jane.doe@example.com" `
+  -DisplayName "Jane Doe" `
+  -Department "Information Technology" `
+  -JobTitle "Security Analyst" `
+  -Manager "manager@example.com" `
+  -RequestedGroups "IAM-Users","VPN-Access" `
+  -TicketId "CHG-1001" `
+  -WhatIf</code></pre>
+        </article>
+
+        <article class="code-panel">
+          <h3>Access review evidence</h3>
+          <pre><code>.\IAM-Protocol.ps1 `
+  -Action Review `
+  -Provider MicrosoftGraph `
+  -UserPrincipalName "jane.doe@example.com" `
+  -TicketId "REVIEW-1001" `
+  -ReviewOutputPath ".\review-jane-doe.json"</code></pre>
+        </article>
+      </div>
+    </section>
+
+    <section class="section case-section evidence-section">
+      <div>
+        <p class="section-kicker">Evidence output</p>
+        <h2>Audit-ready review sample</h2>
+        <p>The access review export gives a reviewer a portable artifact that can be attached to a ticket, stored with retention controls, or used as evidence during access certification.</p>
+      </div>
+      <pre><code>{
+  "ReviewTimestamp": "2026-06-07T13:20:00",
+  "TicketId": "REVIEW-1001",
+  "Provider": "MicrosoftGraph",
+  "UserPrincipalName": "jane.doe@example.com",
+  "DisplayName": "Jane Doe",
+  "Department": "Information Technology",
+  "JobTitle": "Security Analyst",
+  "AccountEnabled": true,
+  "Groups": [
+    {
+      "Id": "00000000-0000-0000-0000-000000000000",
+      "DisplayName": "IAM-Users"
+    },
+    {
+      "Id": "11111111-1111-1111-1111-111111111111",
+      "DisplayName": "VPN-Access"
+    }
+  ]
+}</code></pre>
+    </section>
+
+    <section class="section case-section light-section">
+      <div class="section-heading">
+        <div>
+          <p class="section-kicker">Engineering decisions</p>
+          <h2>Security controls built into the project</h2>
+        </div>
+      </div>
+      <div class="control-grid">
+        <article>
+          <h3>Provider selection</h3>
+          <p>Supports Microsoft Graph as the default provider while keeping Active Directory available for hybrid or legacy environments.</p>
+        </article>
+        <article>
+          <h3>Safe execution</h3>
+          <p>Uses PowerShell `ShouldProcess`, `-WhatIf`, and `-Confirm` so risky changes can be reviewed before execution.</p>
+        </article>
+        <article>
+          <h3>Audit trail</h3>
+          <p>Writes JSON-formatted log events with ticket ID, provider, user, action, level, timestamp, and message.</p>
+        </article>
+        <article>
+          <h3>Offboarding depth</h3>
+          <p>Graph offboarding includes account disablement, sign-in session revocation, group removal, app role cleanup, directory role cleanup, and authentication method cleanup.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2026 Roy Mcdonald. All rights reserved.</p>
+  </footer>
+</body>
+</html>

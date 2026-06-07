@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Active Directory Access Review Lab case study by Roy Mcdonald, showing user account hygiene, group membership review, stale account checks, least privilege, and audit evidence.">
+  <title>Active Directory Access Review Lab | Roy Mcdonald</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html#top" aria-label="Roy Mcdonald home">Roy Mcdonald</a>
+    <nav class="nav" aria-label="Project navigation">
+      <a href="index.html#projects">Projects</a>
+      <a href="index.html#skills">Skills</a>
+      <a href="index.html#resume">Resume</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="project-hero">
+      <div>
+        <p class="eyebrow">Project case study</p>
+        <h1>Active Directory Access Review Lab</h1>
+        <p class="lead">A hands-on IAM lab for reviewing Active Directory users, group memberships, stale accounts, privileged access, and least-privilege cleanup evidence.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="assets/active-directory-access-review-lab.md" download>Download Runbook</a>
+          <a class="button secondary" href="index.html#projects">Back to Portfolio</a>
+        </div>
+      </div>
+      <aside class="project-summary-panel" aria-label="Project summary">
+        <dl>
+          <div>
+            <dt>Platform</dt>
+            <dd>Active Directory</dd>
+          </div>
+          <div>
+            <dt>Focus</dt>
+            <dd>Access review and group cleanup</dd>
+          </div>
+          <div>
+            <dt>Tools</dt>
+            <dd>ADUC, PowerShell, RSAT</dd>
+          </div>
+          <div>
+            <dt>Security Goal</dt>
+            <dd>Least privilege and audit readiness</dd>
+          </div>
+        </dl>
+      </aside>
+    </section>
+
+    <section class="section case-section">
+      <div class="case-grid">
+        <article class="case-panel">
+          <p class="section-kicker">Problem</p>
+          <h2>Access grows stale without regular review.</h2>
+          <p>Active Directory environments can accumulate disabled users, stale accounts, outdated group memberships, and privileged access that no longer matches business need.</p>
+        </article>
+        <article class="case-panel">
+          <p class="section-kicker">Solution</p>
+          <h2>A repeatable AD access review process.</h2>
+          <p>This lab demonstrates how to inventory users and groups, compare access against business need, document findings, and test cleanup actions safely before making changes.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section case-section light-section">
+      <div class="section-heading">
+        <div>
+          <p class="section-kicker">Review workflow</p>
+          <h2>How the AD lab is structured</h2>
+        </div>
+      </div>
+
+      <div class="workflow-grid">
+        <article>
+          <span>01</span>
+          <h3>Inventory</h3>
+          <p>List users, disabled accounts, stale accounts, and key security groups using ADUC and PowerShell.</p>
+        </article>
+        <article>
+          <span>02</span>
+          <h3>Validate</h3>
+          <p>Compare group memberships against an access matrix, ticket, department, or business justification.</p>
+        </article>
+        <article>
+          <span>03</span>
+          <h3>Remediate</h3>
+          <p>Document recommended removals, test with `-WhatIf`, and retain evidence for audit or access certification.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section case-section">
+      <div class="section-heading">
+        <div>
+          <p class="section-kicker">Design matrix</p>
+          <h2>Active Directory review decisions</h2>
+        </div>
+      </div>
+
+      <div class="matrix-grid">
+        <article>
+          <h3>Users</h3>
+          <p>Review enabled, disabled, stale, and department-based user records for account hygiene.</p>
+        </article>
+        <article>
+          <h3>Groups</h3>
+          <p>Validate baseline, application, VPN, and privileged group memberships against business need.</p>
+        </article>
+        <article>
+          <h3>Evidence</h3>
+          <p>Export users and group memberships to CSV or JSON for ticket attachment and audit review.</p>
+        </article>
+        <article>
+          <h3>Cleanup</h3>
+          <p>Use `-WhatIf`, approvals, and change tracking before removing access or disabling accounts.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section case-section light-section">
+      <div class="section-heading">
+        <div>
+          <p class="section-kicker">Practice steps</p>
+          <h2>Hands-on lab path</h2>
+        </div>
+        <a class="button secondary" href="assets/active-directory-access-review-lab.md" download>Download Full Runbook</a>
+      </div>
+
+      <ol class="steps-list">
+        <li>Create test users for active, disabled, and stale account scenarios.</li>
+        <li>Create security groups for baseline access, VPN access, and admin access.</li>
+        <li>Add users to groups based on a simple access matrix.</li>
+        <li>Use PowerShell to list users, account state, and last logon details.</li>
+        <li>Export group memberships and compare them to business need.</li>
+        <li>Identify excessive access and test cleanup commands with `-WhatIf`.</li>
+        <li>Document findings as audit evidence for an access review.</li>
+      </ol>
+    </section>
+
+    <section class="section case-section evidence-section">
+      <div>
+        <p class="section-kicker">Evidence commands</p>
+        <h2>PowerShell used for review</h2>
+        <p>The project shows practical AD review commands that can produce evidence for stale account checks, group review, and cleanup validation.</p>
+      </div>
+      <pre><code>Get-ADUser -Filter * -Properties Enabled,LastLogonDate,Department |
+  Select-Object Name,UserPrincipalName,Enabled,LastLogonDate,Department
+
+Get-ADGroupMember -Identity "VPN-Access" |
+  Select-Object Name,SamAccountName,ObjectClass
+
+Remove-ADGroupMember -Identity "VPN-Access" `
+  -Members "jane.doe" `
+  -WhatIf</code></pre>
+    </section>
+
+    <section class="section case-section light-section">
+      <div class="section-heading">
+        <div>
+          <p class="section-kicker">IAM skills shown</p>
+          <h2>What this project proves</h2>
+        </div>
+      </div>
+      <div class="control-grid">
+        <article>
+          <h3>Directory fundamentals</h3>
+          <p>Shows practical understanding of users, groups, account state, and privileged access.</p>
+        </article>
+        <article>
+          <h3>Access review</h3>
+          <p>Connects group membership to business need, least privilege, and certification evidence.</p>
+        </article>
+        <article>
+          <h3>PowerShell operations</h3>
+          <p>Uses repeatable commands to inventory accounts, review groups, and test cleanup actions.</p>
+        </article>
+        <article>
+          <h3>Audit readiness</h3>
+          <p>Documents findings, approvals, and evidence exports before remediation.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2026 Roy Mcdonald. All rights reserved.</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Conditional Access Policy Lab case study by Roy Mcdonald, showing Microsoft Entra ID policy design, MFA enforcement, report-only validation, exclusions, and sign-in log review.">
+  <title>Conditional Access Policy Lab | Roy Mcdonald</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html#top" aria-label="Roy Mcdonald home">Roy Mcdonald</a>
+    <nav class="nav" aria-label="Project navigation">
+      <a href="index.html#projects">Projects</a>
+      <a href="index.html#skills">Skills</a>
+      <a href="index.html#resume">Resume</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="project-hero">
+      <div>
+        <p class="eyebrow">Project case study</p>
+        <h1>Conditional Access Policy Lab</h1>
+        <p class="lead">A Microsoft Entra ID lab focused on designing, validating, and safely rolling out MFA-based Conditional Access policies for cloud applications.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="assets/conditional-access-policy-lab.md" download>Download Runbook</a>
+          <a class="button secondary" href="index.html#projects">Back to Portfolio</a>
+        </div>
+      </div>
+      <aside class="project-summary-panel" aria-label="Project summary">
+        <dl>
+          <div>
+            <dt>Platform</dt>
+            <dd>Microsoft Entra ID</dd>
+          </div>
+          <div>
+            <dt>Controls</dt>
+            <dd>MFA, Conditional Access, exclusions</dd>
+          </div>
+          <div>
+            <dt>Validation</dt>
+            <dd>Report-only mode + sign-in logs</dd>
+          </div>
+          <div>
+            <dt>Security Goal</dt>
+            <dd>Least privilege access enforcement</dd>
+          </div>
+        </dl>
+      </aside>
+    </section>
+
+    <section class="section case-section">
+      <div class="case-grid">
+        <article class="case-panel">
+          <p class="section-kicker">Problem</p>
+          <h2>MFA policies can fail when rollout is rushed.</h2>
+          <p>Conditional Access is powerful, but a poorly scoped policy can interrupt business users, lock out administrators, or create unclear troubleshooting paths. IAM teams need a safe design that protects access without creating avoidable outages.</p>
+        </article>
+        <article class="case-panel">
+          <p class="section-kicker">Solution</p>
+          <h2>A staged policy design with validation evidence.</h2>
+          <p>This lab maps policy requirements to Entra ID assignments, exclusions, grant controls, report-only validation, and sign-in log review before enforcement.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section case-section light-section">
+      <div class="section-heading">
+        <div>
+          <p class="section-kicker">Policy architecture</p>
+          <h2>How the lab is structured</h2>
+        </div>
+      </div>
+
+      <div class="workflow-grid">
+        <article>
+          <span>01</span>
+          <h3>Scope</h3>
+          <p>Target a pilot security group first, define cloud applications, and exclude approved emergency access accounts.</p>
+        </article>
+        <article>
+          <span>02</span>
+          <h3>Control</h3>
+          <p>Require multifactor authentication for selected users and applications while documenting why the control is needed.</p>
+        </article>
+        <article>
+          <span>03</span>
+          <h3>Validate</h3>
+          <p>Use report-only mode and sign-in logs to confirm expected outcomes before enabling enforcement.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section case-section">
+      <div class="section-heading">
+        <div>
+          <p class="section-kicker">Design matrix</p>
+          <h2>Conditional Access design decisions</h2>
+        </div>
+      </div>
+
+      <div class="matrix-grid">
+        <article>
+          <h3>Assignments</h3>
+          <p>Target pilot users through a security group instead of immediately applying the policy tenant-wide.</p>
+        </article>
+        <article>
+          <h3>Exclusions</h3>
+          <p>Exclude documented break-glass accounts so emergency access remains available during policy issues.</p>
+        </article>
+        <article>
+          <h3>Cloud Apps</h3>
+          <p>Start with Microsoft 365 and selected SaaS apps, then expand after validation.</p>
+        </article>
+        <article>
+          <h3>Grant Controls</h3>
+          <p>Require MFA, confirm registration status, and review interruptions before enabling enforcement.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section case-section light-section">
+      <div class="section-heading">
+        <div>
+          <p class="section-kicker">Practice steps</p>
+          <h2>Hands-on lab path</h2>
+        </div>
+        <a class="button secondary" href="assets/conditional-access-policy-lab.md" download>Download Full Runbook</a>
+      </div>
+
+      <ol class="steps-list">
+        <li>Create a pilot security group and add a test user.</li>
+        <li>Confirm MFA registration and document break-glass exclusions.</li>
+        <li>Create a Conditional Access policy scoped to the pilot group.</li>
+        <li>Select Microsoft 365 or another test cloud application.</li>
+        <li>Require MFA and start the policy in report-only mode.</li>
+        <li>Test browser and mobile sign-ins, then review Entra ID sign-in logs.</li>
+        <li>Document expected results before moving the policy to enforced mode.</li>
+      </ol>
+    </section>
+
+    <section class="section case-section evidence-section">
+      <div>
+        <p class="section-kicker">Validation evidence</p>
+        <h2>What I would verify before enforcement</h2>
+        <p>The lab emphasizes report-only validation and sign-in log review so the policy can be explained, defended, and safely moved into production.</p>
+      </div>
+      <pre><code>Validation checklist
+- Target user is included in the pilot group
+- Break-glass account is excluded
+- Policy appears in report-only sign-in results
+- Grant control shows MFA requirement
+- Browser and mobile sign-ins behave as expected
+- Interrupted sign-ins are documented
+- Enforcement is approved through change management</code></pre>
+    </section>
+
+    <section class="section case-section light-section">
+      <div class="section-heading">
+        <div>
+          <p class="section-kicker">IAM skills shown</p>
+          <h2>What this project proves</h2>
+        </div>
+      </div>
+      <div class="control-grid">
+        <article>
+          <h3>Access governance</h3>
+          <p>Maps security requirements to users, groups, apps, exclusions, and grant controls.</p>
+        </article>
+        <article>
+          <h3>Risk-aware rollout</h3>
+          <p>Uses pilot groups and report-only mode before broad enforcement.</p>
+        </article>
+        <article>
+          <h3>Operational troubleshooting</h3>
+          <p>Relies on sign-in logs, policy results, and MFA registration state to investigate access issues.</p>
+        </article>
+        <article>
+          <h3>Change management</h3>
+          <p>Documents policy intent, validation steps, expected behavior, and enforcement readiness.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2026 Roy Mcdonald. All rights reserved.</p>
+  </footer>
+</body>
+</html>

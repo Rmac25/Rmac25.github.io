@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="IAM Reference Architecture project by Roy Mcdonald, showing target-state identity architecture, lifecycle flows, access governance, Conditional Access, privileged access, monitoring, and roadmap planning.">
+  <title>IAM Reference Architecture | Roy Mcdonald</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html#top" aria-label="Roy Mcdonald home">Roy Mcdonald</a>
+    <nav class="nav" aria-label="Project navigation">
+      <a href="index.html#projects">Projects</a>
+      <a href="index.html#skills">Skills</a>
+      <a href="index.html#resume">Resume</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="project-hero">
+      <div>
+        <p class="eyebrow">Architecture project</p>
+        <h1>IAM Reference Architecture</h1>
+        <p class="lead">A target-state identity architecture that connects lifecycle automation, access governance, authentication controls, privileged access, monitoring, and audit evidence.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="assets/iam-reference-architecture.md" download>Download Architecture Brief</a>
+          <a class="button secondary" href="index.html#projects">Back to Portfolio</a>
+        </div>
+      </div>
+      <aside class="project-summary-panel" aria-label="Project summary">
+        <dl>
+          <div>
+            <dt>Role Focus</dt>
+            <dd>IAM Architect</dd>
+          </div>
+          <div>
+            <dt>Architecture</dt>
+            <dd>Hybrid identity target state</dd>
+          </div>
+          <div>
+            <dt>Controls</dt>
+            <dd>MFA, RBAC, PAM, access reviews</dd>
+          </div>
+          <div>
+            <dt>Outcome</dt>
+            <dd>Governed and auditable identity model</dd>
+          </div>
+        </dl>
+      </aside>
+    </section>
+
+    <section class="section case-section">
+      <div class="case-grid">
+        <article class="case-panel">
+          <p class="section-kicker">Problem</p>
+          <h2>IAM tools need a shared architecture.</h2>
+          <p>Identity environments often contain Entra ID, Active Directory, SaaS apps, service desk workflows, privileged roles, and monitoring tools. Without a reference architecture, controls can become disconnected and hard to govern.</p>
+        </article>
+        <article class="case-panel">
+          <p class="section-kicker">Solution</p>
+          <h2>A target-state model for identity governance.</h2>
+          <p>This project defines how identities enter, move through, and exit the environment while tying authentication, authorization, review evidence, and monitoring into a single IAM operating model.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section case-section light-section">
+      <div class="section-heading">
+        <div>
+          <p class="section-kicker">Architecture layers</p>
+          <h2>Target-state IAM model</h2>
+        </div>
+      </div>
+
+      <div class="architecture-flow" aria-label="IAM architecture flow">
+        <article>
+          <h3>Identity Source</h3>
+          <p>HR record, approved request, or service desk ticket starts the lifecycle event.</p>
+        </article>
+        <article>
+          <h3>Directory Layer</h3>
+          <p>Microsoft Entra ID and Active Directory hold users, groups, roles, and account state.</p>
+        </article>
+        <article>
+          <h3>Access Layer</h3>
+          <p>Groups, roles, app assignments, and SSO integrations grant business access.</p>
+        </article>
+        <article>
+          <h3>Control Layer</h3>
+          <p>MFA, Conditional Access, privileged access practices, and least privilege reduce risk.</p>
+        </article>
+        <article>
+          <h3>Governance Layer</h3>
+          <p>Access reviews, tickets, approvals, audit logs, and exception handling prove control.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section case-section">
+      <div class="section-heading">
+        <div>
+          <p class="section-kicker">Design matrix</p>
+          <h2>Architecture decisions</h2>
+        </div>
+      </div>
+
+      <div class="matrix-grid">
+        <article>
+          <h3>Lifecycle</h3>
+          <p>Joiner, mover, and leaver flows are tied to approved triggers and evidence capture.</p>
+        </article>
+        <article>
+          <h3>Access Model</h3>
+          <p>Prefer RBAC groups, app roles, and standard access packages over direct assignment.</p>
+        </article>
+        <article>
+          <h3>Privileged Access</h3>
+          <p>Separate administrative accounts, protect emergency access, and review privileged roles.</p>
+        </article>
+        <article>
+          <h3>Monitoring</h3>
+          <p>Use sign-in logs, audit logs, SIEM alerts, and incident handoffs to detect identity risk.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section case-section light-section">
+      <div class="section-heading">
+        <div>
+          <p class="section-kicker">Practice steps</p>
+          <h2>Hands-on architecture path</h2>
+        </div>
+        <a class="button secondary" href="assets/iam-reference-architecture.md" download>Download Full Brief</a>
+      </div>
+
+      <ol class="steps-list">
+        <li>Define business goals and identity risk drivers.</li>
+        <li>Map identity sources, directories, applications, and access paths.</li>
+        <li>Document joiner, mover, and leaver lifecycle workflows.</li>
+        <li>Define RBAC groups, privileged roles, and access review cadence.</li>
+        <li>Map MFA, Conditional Access, SSO, and monitoring controls.</li>
+        <li>Identify gaps, dependencies, and risk acceptance points.</li>
+        <li>Create a phased roadmap from current state to target state.</li>
+      </ol>
+    </section>
+
+    <section class="section case-section evidence-section">
+      <div>
+        <p class="section-kicker">Roadmap evidence</p>
+        <h2>How I would phase the architecture</h2>
+        <p>The project shows architect-level thinking by turning a target state into practical phases that an IAM team can execute.</p>
+      </div>
+      <pre><code>IAM architecture roadmap
+Phase 1: Baseline identity inventory and access model
+Phase 2: MFA and Conditional Access policy hardening
+Phase 3: Lifecycle automation for joiner / mover / leaver events
+Phase 4: Access review evidence and privileged access cleanup
+Phase 5: Monitoring, alerting, and continuous improvement</code></pre>
+    </section>
+
+    <section class="section case-section light-section">
+      <div class="section-heading">
+        <div>
+          <p class="section-kicker">Architect skills shown</p>
+          <h2>What this project proves</h2>
+        </div>
+      </div>
+      <div class="control-grid">
+        <article>
+          <h3>Systems thinking</h3>
+          <p>Connects identity sources, directories, applications, controls, governance, and monitoring.</p>
+        </article>
+        <article>
+          <h3>Governance design</h3>
+          <p>Defines review cadence, evidence, approval paths, and exception handling.</p>
+        </article>
+        <article>
+          <h3>Risk alignment</h3>
+          <p>Maps IAM controls to least privilege, privileged access, and identity threat visibility.</p>
+        </article>
+        <article>
+          <h3>Roadmap planning</h3>
+          <p>Breaks a target architecture into realistic implementation phases.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2026 Roy Mcdonald. All rights reserved.</p>
+  </footer>
+</body>
+</html>

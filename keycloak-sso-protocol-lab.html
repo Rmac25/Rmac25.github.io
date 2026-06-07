@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Keycloak SSO Protocol Lab case study by Roy Mcdonald, showing identity provider configuration, SAML, OAuth 2.0, OpenID Connect, redirect URI validation, token claims, and IAM troubleshooting.">
+  <title>Keycloak SSO Protocol Lab | Roy Mcdonald</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html#top" aria-label="Roy Mcdonald home">Roy Mcdonald</a>
+    <nav class="nav" aria-label="Project navigation">
+      <a href="index.html#projects">Projects</a>
+      <a href="index.html#skills">Skills</a>
+      <a href="index.html#resume">Resume</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="project-hero">
+      <div>
+        <p class="eyebrow">Project case study</p>
+        <h1>Keycloak SSO Protocol Lab</h1>
+        <p class="lead">A hands-on identity provider lab that demonstrates how SAML, OAuth 2.0, and OpenID Connect support single sign-on for enterprise applications.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="assets/keycloak-sso-protocol-lab.md" download>Download Runbook</a>
+          <a class="button secondary" href="index.html#projects">Back to Portfolio</a>
+        </div>
+      </div>
+      <aside class="project-summary-panel" aria-label="Project summary">
+        <dl>
+          <div>
+            <dt>Platform</dt>
+            <dd>Keycloak</dd>
+          </div>
+          <div>
+            <dt>Protocols</dt>
+            <dd>SAML, OAuth 2.0, OpenID Connect</dd>
+          </div>
+          <div>
+            <dt>Focus</dt>
+            <dd>SSO integration and troubleshooting</dd>
+          </div>
+          <div>
+            <dt>IAM Skill</dt>
+            <dd>Federated authentication</dd>
+          </div>
+        </dl>
+      </aside>
+    </section>
+
+    <section class="section case-section">
+      <div class="case-grid">
+        <article class="case-panel">
+          <p class="section-kicker">Problem</p>
+          <h2>SSO breaks when protocol details are misunderstood.</h2>
+          <p>Federated authentication depends on correct client settings, redirect URIs, claims, scopes, and token behavior. A small configuration mistake can cause login loops, missing roles, or blocked application access.</p>
+        </article>
+        <article class="case-panel">
+          <p class="section-kicker">Solution</p>
+          <h2>A lab that follows the authentication path end to end.</h2>
+          <p>This project uses Keycloak as the identity provider to model how users authenticate, how applications redirect to the provider, and how identity data returns to the application.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section case-section light-section">
+      <div class="section-heading">
+        <div>
+          <p class="section-kicker">Protocol flow</p>
+          <h2>How SSO works in the lab</h2>
+        </div>
+      </div>
+
+      <div class="workflow-grid">
+        <article>
+          <span>01</span>
+          <h3>Request</h3>
+          <p>The user opens the application. The app redirects the user to Keycloak because authentication is required.</p>
+        </article>
+        <article>
+          <span>02</span>
+          <h3>Authenticate</h3>
+          <p>Keycloak validates the user, applies realm/client rules, and prepares the assertion or token response.</p>
+        </article>
+        <article>
+          <span>03</span>
+          <h3>Return</h3>
+          <p>The browser returns to the approved redirect URI, and the app consumes the identity data for access decisions.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section case-section">
+      <div class="section-heading">
+        <div>
+          <p class="section-kicker">Configuration matrix</p>
+          <h2>SSO design decisions</h2>
+        </div>
+      </div>
+
+      <div class="matrix-grid">
+        <article>
+          <h3>Realm</h3>
+          <p>Creates an isolated identity space for users, clients, roles, groups, and authentication behavior.</p>
+        </article>
+        <article>
+          <h3>Client</h3>
+          <p>Represents the application that relies on Keycloak for authentication and token/assertion handling.</p>
+        </article>
+        <article>
+          <h3>Redirect URI</h3>
+          <p>Defines the approved callback URL so Keycloak only returns users to trusted application endpoints.</p>
+        </article>
+        <article>
+          <h3>Claims</h3>
+          <p>Passes user attributes, roles, and groups so applications can make authorization decisions.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section case-section light-section">
+      <div class="section-heading">
+        <div>
+          <p class="section-kicker">Practice steps</p>
+          <h2>Hands-on lab path</h2>
+        </div>
+        <a class="button secondary" href="assets/keycloak-sso-protocol-lab.md" download>Download Full Runbook</a>
+      </div>
+
+      <ol class="steps-list">
+        <li>Create a Keycloak realm, test user, roles, and groups.</li>
+        <li>Create a client application for the test app.</li>
+        <li>Configure the valid redirect URI and allowed web origins.</li>
+        <li>Add scopes or mappers for expected identity claims.</li>
+        <li>Start the app login flow and confirm redirection to Keycloak.</li>
+        <li>Authenticate, return to the app, and review token or assertion claims.</li>
+        <li>Break one setting intentionally and document the troubleshooting signal.</li>
+      </ol>
+    </section>
+
+    <section class="section case-section evidence-section">
+      <div>
+        <p class="section-kicker">Troubleshooting evidence</p>
+        <h2>What I would check when SSO fails</h2>
+        <p>The lab connects common SSO symptoms to likely IAM causes so an interviewer can see the troubleshooting mindset, not just a finished setup.</p>
+      </div>
+      <pre><code>SSO troubleshooting checklist
+- Confirm client ID and access type are correct
+- Confirm redirect URI matches the application callback
+- Confirm user exists and is enabled in the realm
+- Confirm required roles, groups, scopes, or mappers exist
+- Review token claims for subject, email, roles, and groups
+- Check for invalid client, redirect mismatch, and expired session errors
+- Compare expected IdP/SP behavior against the actual login flow</code></pre>
+    </section>
+
+    <section class="section case-section light-section">
+      <div class="section-heading">
+        <div>
+          <p class="section-kicker">IAM skills shown</p>
+          <h2>What this project proves</h2>
+        </div>
+      </div>
+      <div class="control-grid">
+        <article>
+          <h3>Federation basics</h3>
+          <p>Shows understanding of identity provider, service provider, relying party, and client application roles.</p>
+        </article>
+        <article>
+          <h3>Protocol literacy</h3>
+          <p>Connects SAML, OAuth 2.0, and OpenID Connect concepts to real authentication behavior.</p>
+        </article>
+        <article>
+          <h3>Access troubleshooting</h3>
+          <p>Identifies configuration issues that cause login failures, missing claims, or bad redirect behavior.</p>
+        </article>
+        <article>
+          <h3>Enterprise IAM thinking</h3>
+          <p>Explains how centralized authentication reduces local account sprawl and improves control over access.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2026 Roy Mcdonald. All rights reserved.</p>
+  </footer>
+</body>
+</html>
