@@ -1,35 +1,38 @@
-# Active Directory Access Review Lab
+# Active Directory Cleanup
 
 ## Objective
 
-Practice an on-prem Active Directory access review workflow focused on user
-account hygiene, group membership validation, least privilege, and cleanup
-documentation.
+Practice an on-prem Active Directory cleanup workflow focused on stale account
+review, disabled user cleanup, group membership validation, least privilege, and
+audit-ready documentation.
 
 ## Scenario
 
 An organization needs to review Active Directory users and security groups to
-identify stale accounts, risky group memberships, disabled users, and access
-that no longer matches business need. The goal is to produce evidence that can
-support an IAM access certification or audit review.
+identify stale accounts, disabled users with lingering access, risky group
+memberships, and access that no longer matches business need. The goal is to
+produce evidence that can support cleanup approvals, IAM access certification,
+or audit review.
 
 ## Lab Scope
 
 - Active Directory Users and Computers review
 - PowerShell-based user and group inventory
 - Disabled and inactive account checks
+- No-logon account checks
 - Security group membership review
 - Privileged group review
 - Least-privilege cleanup recommendations
 - Audit-ready documentation
+- Safe cleanup testing with `-WhatIf`
 
 ## Practice Steps
 
 1. Create or identify a test organizational unit for the lab.
-2. Create test users that represent active, disabled, and stale accounts.
+2. Create test users that represent active, disabled, stale, and no-logon accounts.
 3. Create security groups for baseline access, VPN access, and admin access.
 4. Add users to groups based on a simple access matrix.
-5. Use PowerShell to list enabled users, disabled users, and stale accounts.
+5. Run `AD-Cleanup-Review.ps1` to export enabled, disabled, stale, and no-logon accounts.
 6. Export group memberships for review.
 7. Review privileged groups such as Domain Admins or Account Operators.
 8. Compare memberships against the access matrix.
@@ -41,8 +44,10 @@ support an IAM access certification or audit review.
 ## Example Commands
 
 ```powershell
-Get-ADUser -Filter * -Properties Enabled,LastLogonDate,Department |
-  Select-Object Name,UserPrincipalName,Enabled,LastLogonDate,Department
+.\AD-Cleanup-Review.ps1 `
+  -StaleDays 90 `
+  -ReviewGroups "Domain Admins","VPN-Access" `
+  -ExportPath ".\ad-cleanup-review.csv"
 ```
 
 ```powershell
@@ -59,14 +64,15 @@ Remove-ADGroupMember -Identity "VPN-Access" `
 ## Validation Checklist
 
 - Confirm disabled users are not assigned unnecessary access.
-- Confirm stale accounts are documented for review.
+- Confirm stale and no-logon accounts are documented for review.
 - Confirm privileged groups contain only approved users.
 - Confirm group memberships match business need.
 - Confirm recommended removals are tied to a ticket or approval.
 - Confirm evidence exports do not expose sensitive production data.
+- Confirm cleanup commands are tested with `-WhatIf` before execution.
 
 ## Security Rationale
 
 Active Directory remains a core identity platform in many environments. Regular
-account and group reviews help reduce privilege creep, detect stale access, and
-support least-privilege operations.
+cleanup reviews help reduce privilege creep, detect stale access, remove
+unnecessary group memberships, and support least-privilege operations.

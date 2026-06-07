@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Active Directory Access Review Lab case study by Roy Mcdonald, showing user account hygiene, group membership review, stale account checks, least privilege, and audit evidence.">
-  <title>Active Directory Access Review Lab | Roy Mcdonald</title>
+  <meta name="description" content="Active Directory Cleanup case study by Roy Mcdonald, showing stale account review, disabled user cleanup, group membership validation, privileged access review, least privilege, and audit evidence.">
+  <title>Active Directory Cleanup | Roy Mcdonald</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -22,10 +22,11 @@
     <section class="project-hero">
       <div>
         <p class="eyebrow">Project case study</p>
-        <h1>Active Directory Access Review Lab</h1>
-        <p class="lead">A hands-on IAM lab for reviewing Active Directory users, group memberships, stale accounts, privileged access, and least-privilege cleanup evidence.</p>
+        <h1>Active Directory Cleanup</h1>
+        <p class="lead">A hands-on IAM cleanup project for finding stale accounts, reviewing disabled users, validating group memberships, and preparing least-privilege remediation evidence.</p>
         <div class="hero-actions">
           <a class="button primary" href="assets/active-directory-access-review-lab.md" download>Download Runbook</a>
+          <a class="button secondary" href="assets/AD-Cleanup-Review.ps1" download>Download Script</a>
           <a class="button secondary" href="index.html#projects">Back to Portfolio</a>
         </div>
       </div>
@@ -37,7 +38,7 @@
           </div>
           <div>
             <dt>Focus</dt>
-            <dd>Access review and group cleanup</dd>
+            <dd>Stale account and group cleanup</dd>
           </div>
           <div>
             <dt>Tools</dt>
@@ -55,13 +56,13 @@
       <div class="case-grid">
         <article class="case-panel">
           <p class="section-kicker">Problem</p>
-          <h2>Access grows stale without regular review.</h2>
-          <p>Active Directory environments can accumulate disabled users, stale accounts, outdated group memberships, and privileged access that no longer matches business need.</p>
+          <h2>Directory access gets messy over time.</h2>
+          <p>Active Directory environments can accumulate stale accounts, disabled users with lingering access, outdated group memberships, and privileged access that no longer matches business need.</p>
         </article>
         <article class="case-panel">
           <p class="section-kicker">Solution</p>
-          <h2>A repeatable AD access review process.</h2>
-          <p>This lab demonstrates how to inventory users and groups, compare access against business need, document findings, and test cleanup actions safely before making changes.</p>
+          <h2>A repeatable cleanup review process.</h2>
+          <p>This project demonstrates how to inventory accounts, classify cleanup candidates, review group access, export evidence, and test remediation safely before making changes.</p>
         </article>
       </div>
     </section>
@@ -69,8 +70,8 @@
     <section class="section case-section light-section">
       <div class="section-heading">
         <div>
-          <p class="section-kicker">Review workflow</p>
-          <h2>How the AD lab is structured</h2>
+          <p class="section-kicker">Cleanup workflow</p>
+          <h2>How the AD cleanup project is structured</h2>
         </div>
       </div>
 
@@ -78,17 +79,17 @@
         <article>
           <span>01</span>
           <h3>Inventory</h3>
-          <p>List users, disabled accounts, stale accounts, and key security groups using ADUC and PowerShell.</p>
+          <p>Export enabled, disabled, stale, and no-logon accounts using PowerShell and Active Directory attributes.</p>
         </article>
         <article>
           <span>02</span>
           <h3>Validate</h3>
-          <p>Compare group memberships against an access matrix, ticket, department, or business justification.</p>
+          <p>Review privileged groups and business-access groups against business need, ticket history, or access matrices.</p>
         </article>
         <article>
           <span>03</span>
           <h3>Remediate</h3>
-          <p>Document recommended removals, test with `-WhatIf`, and retain evidence for audit or access certification.</p>
+          <p>Document cleanup candidates, test removals with `-WhatIf`, and retain evidence for audit or access certification.</p>
         </article>
       </div>
     </section>
@@ -97,14 +98,14 @@
       <div class="section-heading">
         <div>
           <p class="section-kicker">Design matrix</p>
-          <h2>Active Directory review decisions</h2>
+          <h2>Active Directory cleanup decisions</h2>
         </div>
       </div>
 
       <div class="matrix-grid">
         <article>
           <h3>Users</h3>
-          <p>Review enabled, disabled, stale, and department-based user records for account hygiene.</p>
+          <p>Classify enabled, disabled, stale, and no-logon accounts before recommending cleanup.</p>
         </article>
         <article>
           <h3>Groups</h3>
@@ -112,11 +113,11 @@
         </article>
         <article>
           <h3>Evidence</h3>
-          <p>Export users and group memberships to CSV or JSON for ticket attachment and audit review.</p>
+          <p>Export account review results and group membership findings for ticket attachment and audit review.</p>
         </article>
         <article>
           <h3>Cleanup</h3>
-          <p>Use `-WhatIf`, approvals, and change tracking before removing access or disabling accounts.</p>
+          <p>Use approvals, change tracking, and `-WhatIf` before removing group access or disabling accounts.</p>
         </article>
       </div>
     </section>
@@ -127,15 +128,18 @@
           <p class="section-kicker">Practice steps</p>
           <h2>Hands-on lab path</h2>
         </div>
-        <a class="button secondary" href="assets/active-directory-access-review-lab.md" download>Download Full Runbook</a>
+        <div class="resume-downloads">
+          <a class="button secondary" href="assets/active-directory-access-review-lab.md" download>Download Full Runbook</a>
+          <a class="text-link" href="assets/AD-Cleanup-Review.ps1" download>PowerShell script</a>
+        </div>
       </div>
 
       <ol class="steps-list">
-        <li>Create test users for active, disabled, and stale account scenarios.</li>
+        <li>Create test users for active, disabled, stale, and no-logon account scenarios.</li>
         <li>Create security groups for baseline access, VPN access, and admin access.</li>
         <li>Add users to groups based on a simple access matrix.</li>
-        <li>Use PowerShell to list users, account state, and last logon details.</li>
-        <li>Export group memberships and compare them to business need.</li>
+        <li>Run the cleanup review script to export account status evidence.</li>
+        <li>Review privileged and business-access group memberships.</li>
         <li>Identify excessive access and test cleanup commands with `-WhatIf`.</li>
         <li>Document findings as audit evidence for an access review.</li>
       </ol>
@@ -144,11 +148,13 @@
     <section class="section case-section evidence-section">
       <div>
         <p class="section-kicker">Evidence commands</p>
-        <h2>PowerShell used for review</h2>
-        <p>The project shows practical AD review commands that can produce evidence for stale account checks, group review, and cleanup validation.</p>
+        <h2>PowerShell used for cleanup review</h2>
+        <p>The project includes a safe review script and practical AD commands that produce evidence for stale account checks, group review, and cleanup validation.</p>
       </div>
-      <pre><code>Get-ADUser -Filter * -Properties Enabled,LastLogonDate,Department |
-  Select-Object Name,UserPrincipalName,Enabled,LastLogonDate,Department
+      <pre><code>.\AD-Cleanup-Review.ps1 `
+  -StaleDays 90 `
+  -ReviewGroups "Domain Admins","VPN-Access" `
+  -ExportPath ".\ad-cleanup-review.csv"
 
 Get-ADGroupMember -Identity "VPN-Access" |
   Select-Object Name,SamAccountName,ObjectClass
@@ -168,15 +174,15 @@ Remove-ADGroupMember -Identity "VPN-Access" `
       <div class="control-grid">
         <article>
           <h3>Directory fundamentals</h3>
-          <p>Shows practical understanding of users, groups, account state, and privileged access.</p>
+          <p>Shows practical understanding of users, groups, account state, stale access, and privileged access.</p>
         </article>
         <article>
           <h3>Access review</h3>
-          <p>Connects group membership to business need, least privilege, and certification evidence.</p>
+          <p>Connects cleanup recommendations to business need, least privilege, and certification evidence.</p>
         </article>
         <article>
           <h3>PowerShell operations</h3>
-          <p>Uses repeatable commands to inventory accounts, review groups, and test cleanup actions.</p>
+          <p>Uses a repeatable script to inventory accounts, review groups, and test cleanup actions.</p>
         </article>
         <article>
           <h3>Audit readiness</h3>
